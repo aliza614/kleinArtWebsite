@@ -1,0 +1,9 @@
+*{margins:0; padding:0;}
+.col-md-4{
+    width: 33.33333%;
+    float:left;
+}
+img{
+    width:100%;
+    float:left;
+}
