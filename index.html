@@ -134,13 +134,25 @@ Iris stored hundreds of her "doodles" in a file cabinet for years until she was 
 <div class="clearfix"></div>
 	<h2>Contact Me</h2>
 	<section class="left-col">
-		<form action="htdocs/send_email_to_nechama.php">
-			<label>First Name <input type="text" name="fname" required /></label>
+		<!--<form method="POST" action="https://formsubmit.co/alizaasdf1234@gmail.com" >-->
+		<!--<form method="post" action="htdocs/send_email_to_nechama.php">-->
+			<form method="post" name="myemailform" action="send_email.php">
+
+				Enter Name:	<input type="text" name="name"> <br/>
+				
+				Enter Email Address:	<input type="email" name="email"><br/>
+				
+				Enter Message:	<textarea name="message"></textarea>
+				
+				<input type="submit" value="Send Form">
+				</form>
+			<!--<label>First Name <input type="text" name="fname" required /></label>
 			<label>Last Name <input type="text" name="lname" required /></label><br/>
 			<label>Email <input type="email" name="email" required /><br/></label>
 			<label>Message <br /><textarea name="message"></textarea><br/></label>
+			
 			<input type="submit" value="Send" />
-		</form>
+		</form>-->
 	</section>
 	<section class="contact sidebar">
 		<p>Iris J. Klein <br class="break"><a href="mailto:iris@irisjklein.com">iris@irisjklein.com</a><br class="break"> 1-561-664-4500
