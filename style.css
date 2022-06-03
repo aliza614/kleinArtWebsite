@@ -17,7 +17,7 @@ h2{
 
 }
 p{
-	font-family: 'Raleway', serif;
+	font-family: 'Times New Roman', serif;
 	color: #2c2c2c;
 	font-size: 140%;
 	line-height:180%;
@@ -51,9 +51,10 @@ img{
 	max-width: 600px;
 	margin: auto;
 }
+/* NOTE make line 2 smaller
 .line2{
 	font-size:200%;
-}
+}*/
 
 h1{
 	font-family: 'Playfair Display', serif;
