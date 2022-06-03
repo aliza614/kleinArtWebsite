@@ -20,7 +20,7 @@ p{
 	font-family: 'Times New Roman', serif;
 	color: #2c2c2c;
 	font-size: 140%;
-	line-height:180%;
+	line-height:130%;
 	text-align: justify;
 	font-weight: 300;
 }
@@ -34,7 +34,7 @@ img{
 	height:100%;
 	width:100%;
 	margin:auto;
-	background: url(https://hashtagcoloradolife.com/wp-content/uploads/2021/03/denver-international-airport-sunset.png) no-repeat 50% 50% /*centers it*/;
+	background: url(img/background.jpg) no-repeat 50% 50% /*centers it*/;
 	background-size: cover;
 	display:table;
 	top:0;
