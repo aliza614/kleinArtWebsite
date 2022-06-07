@@ -34,7 +34,7 @@ img{
 	height:100%;
 	width:100%;
 	margin:auto;
-	background: url(img/background.jpg) no-repeat 50% 50% /*centers it*/;
+	background: url(img/background.JPG) no-repeat 50% 50% /*centers it*/;
 	background-size: cover;
 	display:table;
 	top:0;
