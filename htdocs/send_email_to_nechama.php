@@ -6,7 +6,7 @@
             //$lname=$_POST["lname"];
             //$email=$_POST["email"];
             //$message=$_POST["message"];
-            $message="testing"
+            $message="testing";
             //$full_message='from:'+$fname+' '+$lname+'\n\r'+$email+'\n\r'+$message;
             $subject='Someone just emailed you from your own site';
             //sending the message
