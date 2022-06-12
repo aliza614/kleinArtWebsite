@@ -170,12 +170,12 @@ nav:hover ul{
 .social li{
 	display: inline;
 }
-.social i{
+.social img{
 	font-size: 270%;
 	margin: 1% 5% 7% 4%;
 	color: #2c2c2c;
 }
-.social i:hover{
+.social img:hover{
 	color:#606060;
 }
 footer.second{
@@ -232,7 +232,7 @@ footer.second p{
 	.parrallax{
 		display:none;
 	}
-	.social i{
+	.social img{
 		font-size:170%;
 	}
 }
