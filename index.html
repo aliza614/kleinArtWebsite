@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Photography</title>
 	<link rel="stylesheet" type="text/css" href="/style.css" />
-	<link rel="stylesheet" href="https://m.w3newbie.com/you-tube.css">
+	<!--<link rel="stylesheet" href="https://m.w3newbie.com/you-tube.css">-->
 	<link href="css/font-awesome.min.css" rel="stylesheet"/>
 	<link rel="shortcut icon" type="image/png" href="img/camera-icon.png"/>
 </head>
@@ -59,26 +59,50 @@
 	</div>
 	<a name="gallery-j">
 		<h2>My Gallery</h2>
+		<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for color">
+		<script>
+			function myFunction(){
+				var input, filter,ul,li,img,i,txtValue;
+
+				input=document.getElementById('myInput');
+
+				filter=input.value.toUpperCase();
+				section=document.getElementsByClassName('one-third-port');
+				
+				
+				for(i=0;i<section.length;i++){
+					img=section[i].querySelector('a img');
+					console.log(img.className);
+					txtValue=img.className.toUpperCase();
+					if(txtValue.indexOf(filter)>-1){
+						img.style.display="";
+					} else {
+						img.style.display="none";
+					}
+
+				}
+			}
+		</script>
 		<section class="one-third-port">
-			<a href="/./img/img001watermark.jpg"><img src="img/img001watermark.jpg" alt="">  </a>
+			<a href="/./img/img001watermark.jpg"><img class="img-blue" src="img/img001watermark.jpg" alt="">  </a>
 		</section>
 		<section class="one-third-port">
-			<a href="/./img/img002watermark.jpg"><img src="img/img002watermark.jpg" alt="">  </a>
+			<a href="/./img/img002watermark.jpg"><img class="img-blue" src="img/img002watermark.jpg" alt="">  </a>
 		</section>
 		<section class="one-third-port">
-			<a href="/./img/img003watermark.jpg"><img src="img/img003watermark.jpg" alt="">  </a>
+			<a href="/./img/img003watermark.jpg"><img class="img-blue" src="img/img003watermark.jpg" alt="">  </a>
 		</section>
 		<section class="one-third-port">
-			<a href="/./img/img004watermark.jpg"><img src="img/img004watermark.jpg" alt="">  </a>
+			<a href="/./img/img004watermark.jpg"><img class="img-blue" src="img/img004watermark.jpg" alt="">  </a>
 		</section>
 		<section class="one-third-port">
-			<a href="/./img/img005watermark.jpg"><img src="img/img005watermark.jpg" alt="">  </a>
+			<a href="/./img/img005watermark.jpg"><img class="img-blue" src="img/img005watermark.jpg" alt="">  </a>
 		</section>
 		<section class="one-third-port">
-			<a href="/./img/img006watermark.jpg"><img src="img/img006watermark.jpg" alt="">  </a>
+			<a href="/./img/img006watermark.jpg"><img class="img-blue" src="img/img006watermark.jpg" alt="">  </a>
 		</section>
 		<section class="one-third-port">
-			<a href="/./img/img007watermark.jpg"><img src="img/img007watermark.jpg" alt="">  </a>
+			<a href="/./img/img007watermark.jpg"><img class="img-blue-tan" src="img/img007watermark.jpg" alt="">  </a>
 		</section>
 		<section class="one-third-port">
 			<a href="/./img/img008watermark.jpg"><img src="img/img008watermark.jpg" alt="">  </a>
