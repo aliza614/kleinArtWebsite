@@ -162,7 +162,7 @@ nav:hover ul{
 .btn:hover{
 	background-color: #ddd;
 }
-.btn:active{
+.btn.active{
 	background-color: #666;
 	color:white;
 }
