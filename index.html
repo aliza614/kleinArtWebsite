@@ -61,23 +61,27 @@
 		<h2>My Gallery</h2>
 		<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for color">
 		<script>
+			function sanitizeString(str) {
+        		str = str.replace(/[^a-z0-9áéíóúñü \.,_-]/gim, " ");
+        		return str.trim();
+    		}
 			function myFunction(){
 				var input, filter,ul,li,img,i,txtValue;
 
 				input=document.getElementById('myInput');
 
-				filter=input.value.toUpperCase();
+				filter=sanitizeString(input.value.toLowerCase());
 				section=document.getElementsByClassName('one-third-port');
 				
 				
 				for(i=0;i<section.length;i++){
 					img=section[i].querySelector('a img');
 					console.log(img.className);
-					txtValue=img.className.toUpperCase();
+					txtValue=img.className.toLowerCase();
 					if(txtValue.indexOf(filter)>-1){
-						img.style.display="";
+						section[i].style.display="";
 					} else {
-						img.style.display="none";
+						section[i].style.display="none";
 					}
 
 				}
@@ -105,41 +109,41 @@
 			<a href="/./img/img007watermark.jpg"><img class="img-blue-tan" src="img/img007watermark.jpg" alt="">  </a>
 		</section>
 		<section class="one-third-port">
-			<a href="/./img/img008watermark.jpg"><img src="img/img008watermark.jpg" alt="">  </a>
+			<a href="/./img/img008watermark.jpg"><img class="img-black" src="img/img008watermark.jpg" alt="">  </a>
 		</section>
 		<section class="one-third-port">
-			<a href="/./img/img009watermark.jpg"><img src="img/img009watermark.jpg" alt="">  </a>
+			<a href="/./img/img009watermark.jpg"><img class="img-black" src="img/img009watermark.jpg" alt="">  </a>
 		</section>
 		<section class="one-third-port">
-			<a href="/./img/img010watermark.jpg"><img src="img/img010watermark.jpg" alt="">  </a>
+			<a href="/./img/img010watermark.jpg"><img class="img-blue" src="img/img010watermark.jpg" alt="">  </a>
 		</section>
 		<section class="one-third-port">
-			<a href="/./img/img011watermark.jpg"><img src="img/img011watermark.jpg" alt="">  </a>
+			<a href="/./img/img011watermark.jpg"><img class="img-blue" src="img/img011watermark.jpg" alt="">  </a>
 		</section>
 		<section class="one-third-port">
-			<a href="/./img/img012watermark.jpg"><img src="img/img012watermark.jpg" alt="">  </a>
+			<a href="/./img/img012watermark.jpg"><img class="img-blue" src="img/img012watermark.jpg" alt="">  </a>
 		</section>
 		<section class="one-third-port">
-			<a href="/./img/img013watermark.jpg"><img src="img/img013watermark.jpg" alt="">  </a>
+			<a href="/./img/img013watermark.jpg"><img class="img-blue" src="img/img013watermark.jpg" alt="">  </a>
 		</section>
 		
 		<section class="one-third-port">
-			<a href="/./img/img014watermark.jpg"><img src="img/img014watermark.jpg" alt="">  </a>
+			<a href="/./img/img014watermark.jpg"><img class="img-black" src="img/img014watermark.jpg" alt="">  </a>
 		</section>
 		<section class="one-third-port">
-			<a href="/./img/img015watermark.jpg"><img src="img/img015watermark.jpg" alt="">  </a>
+			<a href="/./img/img015watermark.jpg"><img class="img-black" src="img/img015watermark.jpg" alt="">  </a>
 		</section>
 		<section class="one-third-port">
-			<a href="/./img/img016watermark.jpg"><img src="img/img016watermark.jpg" alt="">  </a>
+			<a href="/./img/img016watermark.jpg"><img class="img-black" src="img/img016watermark.jpg" alt="">  </a>
 		</section>
 		<section class="one-third-port">
-			<a href="/./img/img017watermark.jpg"><img src="img/img017watermark.jpg" alt="">  </a>
+			<a href="/./img/img017watermark.jpg"><img class="img-black" src="img/img017watermark.jpg" alt="">  </a>
 		</section>
 		<section class="one-third-port">
-			<a href="/./img/img018watermark.jpg"><img src="img/img018watermark.jpg" alt="">  </a>
+			<a href="/./img/img018watermark.jpg"><img class="img-black" src="img/img018watermark.jpg" alt="">  </a>
 		</section>
 		<section class="one-third-port">
-			<a href="/./img/img019watermark.jpg"><img src="img/img019watermark.jpg" alt="">  </a>
+			<a href="/./img/img019watermark.jpg"><img class="img-blue" src="img/img019watermark.jpg" alt="">  </a>
 		</section>
 <div class="clearfix"></div>
 
