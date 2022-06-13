@@ -134,7 +134,7 @@ nav:hover ul{
 	margin:4%;
 }
 /*starting gallery*/
-#myInput{
+#myInputColor, #myInputShape{
 	/*background-image: url('css/searchicon.png');*/
 	background-position: 10px 12px;
 	background-repeat: no-repeat;
