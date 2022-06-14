@@ -39,8 +39,8 @@ try {
     $mail->isSMTP();                                            //Send using SMTP
     $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-    $mail->Username   = 'irisjkleinsmtp@gmail.com';                     //SMTP username
-    $mail->Password   = $_ENV;                               //SMTP password
+    $mail->Username   = $_ENV['GMAIL_USERNAME'];                     //SMTP username
+    $mail->Password   = $_ENV['GMAIL_PASSWORD'];                               //SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
     $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
     //form results
@@ -53,11 +53,11 @@ try {
       }
     $email=test_input($_POST["email"]);
     $name=test_input($_POST["name"]);
-    $message=test_input($_POST["message"]);
+    $message=test_input($_POST["message"].".  Your message was sent.");
     //Recipients
     $mail->setFrom("irisjkleinSMTP@gmail.com", "No reply");
     $mail->addAddress($email, $name);     //Add a recipient
-    //$mail->addAddress('ellen@example.com');               //Name is optional
+    $mail->addAddress('irisjkleinSMTP@gmail.com');//CHANGE THIS TO IRIS'S EMAIL LATER               //Name is optional
     $mail->addReplyTo('iris@irisjklein.com', 'Information');
     //$mail->addCC('cc@example.com');
     //$mail->addBCC('bcc@example.com');
