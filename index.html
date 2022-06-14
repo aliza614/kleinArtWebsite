@@ -59,20 +59,124 @@
 	</div>
 	<a name="gallery-j">
 		<h2>My Gallery</h2>
-		<input type="text" id="myInputColor" onkeyup="myFunction()" placeholder="Search for color">
-		<input type="text" id="myInputShape" onkeyup="myFunction()" placeholder="Search for image design">
+		<div class="div">
+			<button class="btn" onclick="myCategory('judaica')">Judaica</button>
+			<button class="btn" onclick="myCategory('geometric')">Geometric/abstract</button> 
+			<button class="btn" onclick="myCategory('photo')">Photography</button>
+		</div>
+		<section class="judaica-filters">
+		<div class="div">
+			<label style="display:block">Remove all filters</label>
+			<button name="btn-all" onclick="myFunction('all')">All</button> 
+		</div>
+		<div class="div">
+			<label style="display:block">Choose a Main Color</label>
+			<button class="btn-color" name="btn-blue" style="background-color:blue" onclick="foregroundColor('blue')">Blue</button>
+			<button class="btn-color" name="btn-red" style="background-color:red" onclick="foregroundColor('red')">Red</button>
+			<button class="btn-color" name="btn-yellow" style="background-color: yellow ; color:black" onclick="foregroundColor('yellow')">Yellow</button>
+			
+			<button class="btn-color" name="btn-purple" style="background-color:purple" onclick="foregroundColor('purple')">Purple</button>
+			<button class="btn-color" name="btn-green" style="background-color:green" onclick="foregroundColor('green')">Green</button>
+			<button class="btn-color" name="btn-orange" style="background-color:orange" onclick="foregroundColor('orange')">Orange</button>
+
+			
+			<button class="btn-color" name="btn-pink" style="background-color:pink" onclick="foregroundColor('pink')">Pink</button>
+			<button class="btn-color" name="btn-black" style="background-color:black; color:white" onclick="foregroundColor('black')">Black</button>
+			<button class="btn-color" name="btn-white" style="background-color:white; color: black;" onclick="foregroundColor('white')">White</button>
+			<button class="btn-color" name="btn-turquoise" style="background-color:turquoise" onclick="foregroundColor('turquoise')">Turquoise</button>
+		</div>
+
+		<div class="div">
+			<label style="display:block">Choose a Background Color</label>
+			<!-- <button class="btn-background-color" name="btn-all"                                  onclick="backgroundColor('bg')     ">All</button> 
+	-->		<button class="btn-background-color" name="btn-blue" style="background-color:blue" onclick="backgroundColor('blue')">Blue</button> 
+			<button class="btn-background-color" name="btn-red" style="background-color:red" onclick="backgroundColor('red')">Red</button>
+			<button class="btn-background-color" name="btn-yellow" style="background-color: yellow ; color:black" onclick="backgroundColor('yellow')">Yellow</button>
+			
+			<button class="btn-background-color" name="btn-purple" style="background-color:purple" onclick="backgroundColor('purple')">Purple</button>
+			<button class="btn-background-color" name="btn-green" style="background-color:green" onclick="backgroundColor('green')">Green</button>
+			<button class="btn-background-color" name="btn-orange" style="background-color:orange" onclick="backgroundColor('orange')">Orange</button>
+
+			
+			<button class="btn-background-color" name="btn-pink" style="background-color:pink" onclick="backgroundColor('pink')">Pink</button>
+			<button class="btn-background-color" name="btn-black" style="background-color:black; color:white" onclick="backgroundColor('black')">Black</button>
+			<button class="btn-background-color" name="btn-white" style="background-color:white; color: black;" onclick="backgroundColor('white')">White</button>
+			<button class="btn-background-color" name="btn-turquoise" style="background-color:turquoise" onclick="backgroundColor('turquoise')">Turquoise</button>
+		</div>
+
+		<div class="div">
+			<label style="display:block">Choose a finish</label>
+<!-- 			
+			<button class="btn-finish-color" name="btn-fn-all"                               onclick="finish('fn')">All</button> -->
+			<button class="btn-finish-color" name="btn-gold" style="background-color:gold" onclick="finish('gold')">Gold</Button>
+			<button class="btn-finish-color" name="btn-silver" style="background-color:silver" onclick="finish('silver')">Silver</Button>
+			<button class="btn-finish-color" name="btn-bronze" style="background-color: #CD7F32;"  onclick="finish('bronze')">Bronze</button>
+		</div>
+		<div class="div">
+			<label style="display:block">Choose an image design</label>
+			<button class="btn-shape" name="btn-candle"  onclick="shape('candle')">Candle</Button>
+			<button class="btn-shape" name="btn-star"    onclick="shape('star')">Jewish Star</Button>
+			<button class="btn-shape" name="btn-shofar"  onclick="shape('shofar')">Shofar</button>
+			<button class="btn-shape" name="btn-driedel" onclick="shape('dreidel')">Dreidel</button>
+		</div>
+		<input type="text" id="myInputCategory" onkeyup="myFunction('cat')" placeholder="Search for category">
+		<input type="text" id="myInputColor" onkeyup="myFunction('fg')" placeholder="Search for color">
+		<input type="text" id="myInputBackgroundColor" onkeyup="myFunction('bg')" placeholder="Search for a background color">
+		<input type="text" id="myInputFinish" onkeyup="myFunction('fns')" placeholder="Search for a image finish">
+		<input type="text" id="myInputShape" onkeyup="myFunction('shp')" placeholder="Search for image design">
+	</section>
 		<script>
+			function myCategory(str){
+				var i, arrayOfJudaica, buttonsBG, buttonsFG, buttonsFinish, buttonsShape;
+				buttonsBG=document.getElementsByClassName("btn-background-color");
+				buttonsFG=document.getElementsByClassName("button-color");
+				buttonsFinish=document.getElementsByClassName("btn-finish-color")
+				buttonsShape=document.getElementsByClassName("btn-shape")
+			}
+			function foregroundColor(colorChosen){
+				var i, buttonColor, inputColor;
+				//buttonColor=document.querySelectorAll(".btn-background-color");
+				document.getElementById('myInputColor').value=sanitizeString(colorChosen);
+				myFunction("fg");
+			}
+			function backgroundColor(colorChosen){
+				var i, buttonColor, inputColor;
+				//buttonColor=document.querySelectorAll(".btn-background-color");
+				document.getElementById('myInputBackgroundColor').value=sanitizeString(colorChosen);
+				myFunction("bg");
+			}
+			function finish(finishChosen){
+				document.getElementById('myInputFinish').value=sanitizeString(finishChosen);
+				myFunction('fns');
+			}
+			function shape(shapeChosen){
+				document.getElementById('myInputShape').value=sanitizeString(shapeChosen);
+				myFunction('shp');
+			}
 			function sanitizeString(str) {
-        		str = str.replace(/[^a-z0-9áéíóúñü \.,_-]/gim, " ");
+				while(str.indexOf(/[^a-z0-9áéíóúñü \.,_-]/gim)>-1)
+        			str = str.replace(/[^a-z0-9áéíóúñü \.,_-]/gim, " ");
         		return str.trim();
     		}
-			function myFunction(){
-				var inputColor, inputShape, filter,ul,li,img,i,txtValue;
+			function myFunction(str){
+				var inputFinish, inputColorBg, inputColorFg, inputShape, filter,ul,li,img,i,txtValue;
+				str=sanitizeString( str)
+				
+				if (str==="all"){
+					document.getElementById('myInputColor').value="";
+					document.getElementById('myInputBackgroundColor').value="";
+					document.getElementById('myInputShape').value="";
+					document.getElementById('myInputFinish').value="";
 
-				inputColor=document.getElementById('myInputColor');
-				inputShape=document.getElementById('myInputShape');
-				filterColor=sanitizeString(inputColor.value.toLowerCase());
-				filterShape=sanitizeString(inputShape.value.toLowerCase());
+				}
+
+				inputColorFg=sanitizeString("fg"+document.getElementById('myInputColor').value.toLowerCase());
+				inputColorBg=sanitizeString("bg"+document.getElementById('myInputBackgroundColor').value.toLowerCase());
+				inputShape=sanitizeString(document.getElementById('myInputShape').value.toLowerCase());
+				inputFinish=sanitizeString(document.getElementById('myInputFinish').value.toLowerCase());
+				console.log(inputColorFg+" "+inputColorBg+" "+inputShape+" "+inputFinish);				
+				//filterShape=sanitizeString(inputShape.value.toLowerCase());
+				
 				section=document.getElementsByClassName('one-third-port');
 				
 				
@@ -80,72 +184,79 @@
 					img=section[i].querySelector('a img');
 					console.log(img.className);
 					txtValue=img.className.toLowerCase();
-					if((txtValue.indexOf(filterColor)>-1)&&(txtValue.indexOf(filterShape)>-1)){
+					if(
+						(txtValue.indexOf(inputColorBg)>-1)
+						&&(txtValue.indexOf(inputColorFg)>-1)
+						&&(txtValue.indexOf(inputShape)>-1)
+						&&(txtValue.indexOf(inputFinish)>-1)
+						){
 						section[i].style.display="";
+						console.log("showing"+ section[i].querySelector('a img').className);
 					} else {
 						section[i].style.display="none";
+						console.log("hiding"+ section[i].querySelector('a img').className);
 					}
 
 				}
 			}
 		</script>
 		<section class="one-third-port">
-			<a href="/./img/img001watermark.jpg"><img class="img-black-candle" src="img/img001watermark.jpg" alt="">  </a>
+			<a href="/./img/img001watermark.jpg"><img class="img-bgblack-fg-gold-candle-judaica" src="img/img001watermark.jpg" alt="">  </a>
 		</section>
 		<section class="one-third-port">
-			<a href="/./img/img002watermark.jpg"><img class="img-blue-hamsa" src="img/img002watermark.jpg" alt="">  </a>
+			<a href="/./img/img002watermark.jpg"><img class="img-bgblue-fgwhite-hamsa-judaica" src="img/img002watermark.jpg" alt="">  </a>
 		</section>
 		<section class="one-third-port">
-			<a href="/./img/img003watermark.jpg"><img class="img-blue-hamsa" src="img/img003watermark.jpg" alt="">  </a>
+			<a href="/./img/img003watermark.jpg"><img class="img-fgblue-bgwhite-gold-hamsa-judaica" src="img/img003watermark.jpg" alt="">  </a>
 		</section>
 		<section class="one-third-port">
-			<a href="/./img/img004watermark.jpg"><img class="img-blue-candle" src="img/img004watermark.jpg" alt="">  </a>
+			<a href="/./img/img004watermark.jpg"><img class="img-bgblue-fg-gold-candle-judaica" src="img/img004watermark.jpg" alt="">  </a>
 		</section>
 		<section class="one-third-port">
-			<a href="/./img/img005watermark.jpg"><img class="img-blue-candle" src="img/img005watermark.jpg" alt="">  </a>
+			<a href="/./img/img005watermark.jpg"><img class="img-bgblue-fg-gold-candle-judaica" src="img/img005watermark.jpg" alt="">  </a>
 		</section>
 		<section class="one-third-port">
-			<a href="/./img/img006watermark.jpg"><img class="img-blue-dreidel" src="img/img006watermark.jpg" alt="">  </a>
+			<a href="/./img/img006watermark.jpg"><img class="img-bgblue-fg-gold-dreidel-judaica" src="img/img006watermark.jpg" alt="">  </a>
 		</section>
 		<section class="one-third-port">
-			<a href="/./img/img007watermark.jpg"><img class="img-blue-candle" src="img/img007watermark.jpg" alt="">  </a>
+			<a href="/./img/img007watermark.jpg"><img class="img-bg-fgblue-gold-candle-judaica" src="img/img007watermark.jpg" alt="">  </a>
 		</section>
 		<section class="one-third-port">
-			<a href="/./img/img008watermark.jpg"><img class="img-black-shofar" src="img/img008watermark.jpg" alt="">  </a>
+			<a href="/./img/img008watermark.jpg"><img class="img-bgblack-bgwhite-fgblack-gold-shofar-judaica" src="img/img008watermark.jpg" alt="">  </a>
 		</section>
 		<section class="one-third-port">
-			<a href="/./img/img009watermark.jpg"><img class="img-black-candle" src="img/img009watermark.jpg" alt="">  </a>
+			<a href="/./img/img009watermark.jpg"><img class="img-bgblack-fg-gold-candle-judaica" src="img/img009watermark.jpg" alt="">  </a>
 		</section>
 		<section class="one-third-port">
-			<a href="/./img/img010watermark.jpg"><img class="img-blue-dreidel" src="img/img010watermark.jpg" alt="">  </a>
+			<a href="/./img/img010watermark.jpg"><img class="img-bgblue-fg-gold-dreidel-judaica" src="img/img010watermark.jpg" alt="">  </a>
 		</section>
 		<section class="one-third-port">
-			<a href="/./img/img011watermark.jpg"><img class="img-blue-hamsa" src="img/img011watermark.jpg" alt="">  </a>
+			<a href="/./img/img011watermark.jpg"><img class="img-bgblue-fgwhite-gold-hamsa-judaica" src="img/img011watermark.jpg" alt="">  </a>
 		</section>
 		<section class="one-third-port">
-			<a href="/./img/img012watermark.jpg"><img class="img-blue-hamsa" src="img/img012watermark.jpg" alt="">  </a>
+			<a href="/./img/img012watermark.jpg"><img class="img-bgwhite-fgblue-gold-hamsa-judaica" src="img/img012watermark.jpg" alt="">  </a>
 		</section>
 		<section class="one-third-port">
-			<a href="/./img/img013watermark.jpg"><img class="img-blue-hamsa" src="img/img013watermark.jpg" alt="">  </a>
+			<a href="/./img/img013watermark.jpg"><img class="img-bgwhite-fgblue-gold-hamsa-judaica" src="img/img013watermark.jpg" alt="">  </a>
 		</section>
 		
 		<section class="one-third-port">
-			<a href="/./img/img014watermark.jpg"><img class="img-black-star" src="img/img014watermark.jpg" alt="">  </a>
+			<a href="/./img/img014watermark.jpg"><img class="img-bgwhite-fgblack-star-judaica" src="img/img014watermark.jpg" alt="">  </a>
 		</section>
 		<section class="one-third-port">
-			<a href="/./img/img015watermark.jpg"><img class="img-black-geometric" src="img/img015watermark.jpg" alt="">  </a>
+			<a href="/./img/img015watermark.jpg"><img class="img-bgwhite-fgblack-geometric" src="img/img015watermark.jpg" alt="">  </a>
 		</section>
 		<section class="one-third-port">
-			<a href="/./img/img016watermark.jpg"><img class="img-black-shofar" src="img/img016watermark.jpg" alt="">  </a>
+			<a href="/./img/img016watermark.jpg"><img class="img-bgwhite-bgblack-fgblack-shofar-judaica" src="img/img016watermark.jpg" alt="">  </a>
 		</section>
 		<section class="one-third-port">
-			<a href="/./img/img017watermark.jpg"><img class="img-black-geometric" src="img/img017watermark.jpg" alt="">  </a>
+			<a href="/./img/img017watermark.jpg"><img class="img-bgwhite-fgblack-geometric" src="img/img017watermark.jpg" alt="">  </a>
 		</section>
 		<section class="one-third-port">
-			<a href="/./img/img018watermark.jpg"><img class="img-black-geometric" src="img/img018watermark.jpg" alt="">  </a>
+			<a href="/./img/img018watermark.jpg"><img class="img-bgwhite-fgblack-geometric" src="img/img018watermark.jpg" alt="">  </a>
 		</section>
 		<section class="one-third-port">
-			<a href="/./img/img019watermark.jpg"><img class="img-blue-hamsa" src="img/img019watermark.jpg" alt="">  </a>
+			<a href="/./img/img019watermark.jpg"><img class="img-bgwhite-fgblue-gold-hamsa-judaica" src="img/img019watermark.jpg" alt="">  </a>
 		</section>
 <div class="clearfix"></div>
 
