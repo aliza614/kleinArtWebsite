@@ -64,7 +64,7 @@
 			<button class="btn" onclick="myCategory('geometric')">Geometric/abstract</button> 
 			<button class="btn" onclick="myCategory('photo')">Photography</button>
 		</div>
-		<section class="judaica-filters">
+		<section id="judaica-filters">
 		<div class="div">
 			<label style="display:block">Remove all filters</label>
 			<button name="btn-all" onclick="myFunction('all')">All</button> 
@@ -118,20 +118,36 @@
 			<button class="btn-shape" name="btn-star"    onclick="shape('star')">Jewish Star</Button>
 			<button class="btn-shape" name="btn-shofar"  onclick="shape('shofar')">Shofar</button>
 			<button class="btn-shape" name="btn-driedel" onclick="shape('dreidel')">Dreidel</button>
+			<button class="btn-shape" name="btn-hamsa" onclick="shape('hamsa')">Hamsa</button>
 		</div>
 		<input type="text" id="myInputCategory" onkeyup="myFunction('cat')" placeholder="Search for category">
-		<input type="text" id="myInputColor" onkeyup="myFunction('fg')" placeholder="Search for color">
-		<input type="text" id="myInputBackgroundColor" onkeyup="myFunction('bg')" placeholder="Search for a background color">
-		<input type="text" id="myInputFinish" onkeyup="myFunction('fns')" placeholder="Search for a image finish">
-		<input type="text" id="myInputShape" onkeyup="myFunction('shp')" placeholder="Search for image design">
+		<input type="text" id="myInputColor" style="display:none" onkeyup="myFunction('fg')" placeholder="Search for color">
+		<input type="text" id="myInputBackgroundColor" style="display:none" onkeyup="myFunction('bg')" placeholder="Search for a background color">
+		<input type="text" id="myInputFinish" style="display:none" onkeyup="myFunction('fns')" placeholder="Search for a image finish">
+		<input type="text" id="myInputShape" style="display:none" onkeyup="myFunction('shp')" placeholder="Search for image design">
 	</section>
 		<script>
 			function myCategory(str){
 				var i, arrayOfJudaica, buttonsBG, buttonsFG, buttonsFinish, buttonsShape;
+				str=sanitizeString(str).toLowerCase();
 				buttonsBG=document.getElementsByClassName("btn-background-color");
 				buttonsFG=document.getElementsByClassName("button-color");
 				buttonsFinish=document.getElementsByClassName("btn-finish-color")
 				buttonsShape=document.getElementsByClassName("btn-shape")
+				document.getElementById("myInputCategory").value=str;
+
+				if(str==="judaica"){
+					console.log("show filters");
+					document.getElementById('judaica-filters').style.display="";
+					myFunction(str);
+
+				}
+				else{
+					console.log("hide filters");
+					document.getElementById('judaica-filters').style.display="none";
+					myFunction("all");
+				}
+				myFunction(str);
 			}
 			function foregroundColor(colorChosen){
 				var i, buttonColor, inputColor;
@@ -159,7 +175,7 @@
         		return str.trim();
     		}
 			function myFunction(str){
-				var inputFinish, inputColorBg, inputColorFg, inputShape, filter,ul,li,img,i,txtValue;
+				var inputFinish, inputColorBg, inputColorFg, inputShape, inputCategory,filter,ul,li,img,i,txtValue;
 				str=sanitizeString( str)
 				
 				if (str==="all"){
@@ -170,12 +186,13 @@
 
 				}
 
+				inputCategory=sanitizeString(document.getElementById('myInputCategory').value.toLowerCase());
 				inputColorFg=sanitizeString("fg"+document.getElementById('myInputColor').value.toLowerCase());
 				inputColorBg=sanitizeString("bg"+document.getElementById('myInputBackgroundColor').value.toLowerCase());
 				inputShape=sanitizeString(document.getElementById('myInputShape').value.toLowerCase());
 				inputFinish=sanitizeString(document.getElementById('myInputFinish').value.toLowerCase());
 				console.log(inputColorFg+" "+inputColorBg+" "+inputShape+" "+inputFinish);				
-				//filterShape=sanitizeString(inputShape.value.toLowerCase());
+				
 				
 				section=document.getElementsByClassName('one-third-port');
 				
@@ -185,7 +202,8 @@
 					console.log(img.className);
 					txtValue=img.className.toLowerCase();
 					if(
-						(txtValue.indexOf(inputColorBg)>-1)
+						(txtValue.indexOf(inputCategory)>-1)
+						&&(txtValue.indexOf(inputColorBg)>-1)
 						&&(txtValue.indexOf(inputColorFg)>-1)
 						&&(txtValue.indexOf(inputShape)>-1)
 						&&(txtValue.indexOf(inputFinish)>-1)
