@@ -2,11 +2,18 @@
     <body>
         <?php
 use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-require '/PHPMailer/src/Exception.php';
-require '/PHPMailer/src/PHPMailer.php';
-require '/PHPMailer/src/SMTP.php';
+
+//Load Composer's autoloader
+require 'vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+// require(__DIR__ . '\PHPMailer\src\Exception.php');
+// require(__DIR__ . '\PHPMailer\src\PHPMailer.php');
+// require(__DIR__ . '\PHPMailer\src\SMTP.php');
 /*
             $fname=$_POST["name"];
             //$lname=$_POST["lname"];
@@ -23,8 +30,9 @@ require '/PHPMailer/src/SMTP.php';
 
 
             //Create an instance; passing `true` enables exceptions
-$mail = new PHPMailer(true);
 */
+$mail = new PHPMailer(true);
+
 try {
     //Server settings
     $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
@@ -32,14 +40,14 @@ try {
     $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
     $mail->Username   = 'irisjkleinsmtp@gmail.com';                     //SMTP username
-    $mail->Password   = '';                               //SMTP password
+    $mail->Password   = $_ENV;                               //SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
     $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
     //form results
     function test_input($data) {
         $data = trim($data);
         $data = stripslashes($data);
-        preg_replace('/[^a-zA-Z0-9@.-_,]+/', '', $text);
+        preg_replace('/[^a-zA-Z0-9@.-_,]+/', '', $data);
         //$data = htmlspecialchars($data);
         return $data;
       }
@@ -47,20 +55,20 @@ try {
     $name=test_input($_POST["name"]);
     $message=test_input($_POST["message"]);
     //Recipients
-    $mail->setFrom($email, $name);
-    $mail->addAddress('joe@example.net', 'Joe User');     //Add a recipient
-    $mail->addAddress('ellen@example.com');               //Name is optional
-    $mail->addReplyTo('info@example.com', 'Information');
-    $mail->addCC('cc@example.com');
-    $mail->addBCC('bcc@example.com');
+    $mail->setFrom("irisjkleinSMTP@gmail.com", "No reply");
+    $mail->addAddress($email, $name);     //Add a recipient
+    //$mail->addAddress('ellen@example.com');               //Name is optional
+    $mail->addReplyTo('iris@irisjklein.com', 'Information');
+    //$mail->addCC('cc@example.com');
+    //$mail->addBCC('bcc@example.com');
 
     //Attachments
-    $mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
-    $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
+    //$mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
+    //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
 
     //Content
     $mail->isHTML(true);                                  //Set email format to HTML
-    $mail->Subject = 'A submission from your website';
+    $mail->Subject = 'Thank you for your message';
     $mail->Body    = $message;//'This is the HTML message body <b>in bold!</b>';
     $mail->AltBody = $message;//'This is the body in plain text for non-HTML mail clients';
 
