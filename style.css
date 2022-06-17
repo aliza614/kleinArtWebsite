@@ -20,7 +20,7 @@ p{
 	font-family: 'Times New Roman', serif;
 	color: #2c2c2c;
 	font-size: 140%;
-	line-height:180%;
+	line-height: 1.4;
 	text-align: justify;
 	font-weight: 300;
 }
@@ -34,7 +34,7 @@ img{
 	height:100%;
 	width:100%;
 	margin:auto;
-	background: url(https://hashtagcoloradolife.com/wp-content/uploads/2021/03/denver-international-airport-sunset.png) no-repeat 50% 50% /*centers it*/;
+	background: url(img/background.JPG) no-repeat 50% 50% /*centers it*/;
 	background-size: cover;
 	display:table;
 	top:0;
@@ -143,11 +143,22 @@ nav:hover ul{
 }
 .contact p{
 	text-align: center;
-	letter-spacing:5px;
+	letter-spacing: 5px;
+}
+.contact-info p {
+	letter-spacing: 3px;
 }
 .contact a{
 	color:#2c2c2c;
 }
+.contact-form-label {
+	display: inline-block;
+	width: 150px;
+}
+.contact-form input, .contact-form textarea {
+	margin-top: 15px;
+}
+
 .break{
 	display: inline;
 }
@@ -170,12 +181,12 @@ nav:hover ul{
 .social li{
 	display: inline;
 }
-.social i{
+.social img{
 	font-size: 270%;
 	margin: 1% 5% 7% 4%;
 	color: #2c2c2c;
 }
-.social i:hover{
+.social img:hover{
 	color:#606060;
 }
 footer.second{
@@ -232,7 +243,7 @@ footer.second p{
 	.parrallax{
 		display:none;
 	}
-	.social i{
+	.social img{
 		font-size:170%;
 	}
 }
