@@ -57,8 +57,8 @@ try {
     //Recipients
     $mail->setFrom("irisjkleinSMTP@gmail.com", "No reply");
     $mail->addAddress($email, $name);     //Add a recipient
-    $mail->addAddress('irisjkleinSMTP@gmail.com');//CHANGE THIS TO IRIS'S EMAIL LATER               //Name is optional
-    $mail->addReplyTo('iris@irisjklein.com', 'Information');
+    $mail->addAddress('iris@irisjklein.com');//CHANGE THIS TO IRIS'S EMAIL LATER               //Name is optional
+    $mail->addReplyTo('iris@irisjklein.com', 'Iris J. Klein-Artist');
     //$mail->addCC('cc@example.com');
     //$mail->addBCC('bcc@example.com');
 
